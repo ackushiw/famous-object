@@ -13,11 +13,11 @@ angular.module('famous.angular')
     }
   };
 }]).
-factory('faObject', function($rootScope) {
+factory('faObject', ['$rootScope', function($rootScope) {
   var faObjects = {};
 
   return function(name,objectOrMethod) {
-    var type = (typeof objectOrMethod === "function") ? "function" : 
+    var type = (typeof objectOrMethod === "function") ? "function" :
                (typeof objectOrMethod === "object") ? "object" : false;
 
     if(type === "function") {
@@ -31,4 +31,4 @@ factory('faObject', function($rootScope) {
     }
 
   };
-});
+}]);
